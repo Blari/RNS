@@ -23,6 +23,11 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "com.reactnative.com",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }

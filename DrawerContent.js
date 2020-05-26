@@ -16,7 +16,6 @@ import {
 } from '@react-navigation/drawer'
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-
 export function DrawerContent(props) {
 
     const [isDarkTheme, setDarkTheme] = React.useState(false);
@@ -31,10 +30,7 @@ export function DrawerContent(props) {
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection} >
                         <View style={{flexDirection: 'row', marginTop: 15}}>
-                            <Avatar.Image
-                                sorce={{uri: 'https://flatlogic.github.io/one-bootstrap-template/img/avatars/a7.png'}}
-                                size={50}
-                            />
+                            <Avatar.Image source={require('./assets/avatar.png')} size={54} />
                             <View style={{marginLeft: 15, flexDirection: 'column'}}>
                                 <Title style={styles.title}>User Name</Title>
                                 <Caption style={styles.caption}>@userName</Caption>
@@ -104,10 +100,10 @@ export function DrawerContent(props) {
                         label='Map'
                         onPress={() => {props.navigation.navigate('Map')}}/>
                 </Drawer.Section>
-                <Drawer.Section title='Preferences'>
+                <Drawer.Section title='Preferences' >
                     <TouchableRipple onPress={() => {toggleSwitch()}}>
                         <View style={styles.preference}>
-                            <Text>Dark Theme</Text>
+                            <Text style={{color: '#323232'}}>Dark Theme</Text>
                             <View pointerEvents='none'>
                                 <Switch value={isDarkTheme}/>
                             </View>
@@ -134,10 +130,13 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
     drawerContent: {
-        flex: 1,
+
     },
     userInfoSection: {
         paddingLeft: 20,
+        paddingBottom: 15,
+        borderBottomColor: '#f4f4f4',
+        borderBottomWidth: 1
     },
     title: {
         fontSize: 16,
@@ -168,7 +167,10 @@ const styles = StyleSheet.create({
     bottomDrawerSection: {
         marginBottom: 15,
         borderTopColor: '#f4f4f4',
-        borderTopWidth: 1
+        borderTopWidth: 1,
+        position: 'relative',
+        bottom: -50,
+        left: 0
     },
     preference: {
         flexDirection: 'row',
